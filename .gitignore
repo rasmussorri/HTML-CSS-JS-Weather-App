@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor (ignore if you don't want to share workspace files)
+.vscode/
+
+# Secrets / local config
+API_KEYS.txt
+*.key
+
+# Local files
+node_modules/
+.env
+.env.*
+!.env.example

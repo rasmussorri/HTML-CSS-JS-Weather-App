@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="usage-info" id="usageInfo"></div>
+        
+        <div class="search">
+            <input type="text" id="locationInput" placeholder="Enter city name...">
+            <button id="searchBtn">Search</button>
+            <button id="locationBtn">🌍 My Location</button>
+            <button id="testThemeBtn">🎨 Test Themes</button>
+        </div>
+        
+        <div class="weather" id="weather" style="display: none;">
+            <h2 id="locationName"></h2>
+            <div class="time-display" id="timeDisplay"></div>
+            <div class="temp">
+                <span id="currentTemp"></span>°C
+            </div>
+            <div id="weatherDescription"></div>
+            <div class="details">
+                <div>Humidity: <span id="humidity"></span>%</div>
+                <div>Wind: <span id="windSpeed"></span> km/h</div>
+            </div>
+        </div>
+        
+        <div class="forecast" id="forecast" style="display: none;">
+            <h3>24-Hour Forecast</h3>
+            <div class="hourly-chart" id="hourlyChart"></div>
+        </div>
+        
+        <div class="forecast" id="sevenDayForecast" style="display: none;">
+            <h3>7-Day Forecast</h3>
+            <div class="daily-chart" id="dailyChart"></div>
+        </div>
+        
+        <div class="loading" id="loading" style="display: none;">
+            Loading...
+        </div>
+        
+        <div class="error" id="error" style="display: none;">
+            <p id="errorMessage"></p>
+            <button id="retryBtn">Try Again</button>
+        </div>
+    </div>
+
+    <script src="js/weather.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/mock-data.js"></script>
+</body>
+</html>
