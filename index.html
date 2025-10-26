@@ -12,33 +12,99 @@
         <div class="usage-info" id="usageInfo"></div>
         
         <div class="search">
-            <input type="text" id="locationInput" placeholder="Enter city name...">
-            <button id="searchBtn">Search</button>
-            <button id="locationBtn">🌍 My Location</button>
-            <button id="testThemeBtn">🎨 Test Themes</button>
-        </div>
-        
-        <div class="weather" id="weather" style="display: none;">
-            <h2 id="locationName"></h2>
-            <div class="time-display" id="timeDisplay"></div>
-            <div class="temp">
-                <span id="currentTemp"></span>°C
+            <div class="search-input-row">
+                <input type="text" id="locationInput" placeholder="Enter city name...">
+                <button id="searchBtn">Search</button>
+                <button id="locationBtn">🌍 My Location</button>
+                <button id="testThemeBtn">🎨 Test Themes</button>
             </div>
-            <div id="weatherDescription"></div>
-            <div class="details">
-                <div>Humidity: <span id="humidity"></span>%</div>
-                <div>Wind: <span id="windSpeed"></span> km/h</div>
+            <div class="favorites-section">
+                <div class="favorites-dropdown">
+                    <button id="favoritesBtn" class="favorites-btn">⭐ Favorites</button>
+                    <div id="favoritesDropdown" class="favorites-dropdown-content">
+                        <div class="favorites-header">
+                            <span>Saved Locations</span>
+                            <button id="clearFavoritesBtn" class="clear-btn">Clear All</button>
+                        </div>
+                        <div id="favoritesList" class="favorites-list">
+                            <div class="no-favorites">No favorites saved yet</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="temperature-unit-dropdown">
+                    <button id="tempUnitBtn" class="temp-unit-btn">🌡️ °C</button>
+                    <div id="tempUnitDropdown" class="temp-unit-dropdown-content">
+                        <div class="temp-unit-header">
+                            <span>Temperature Unit</span>
+                        </div>
+                        <div class="temp-unit-list">
+                            <div class="temp-unit-item" data-unit="celsius">
+                                <span class="temp-unit-name">Celsius (°C)</span>
+                                <span class="temp-unit-symbol">°C</span>
+                            </div>
+                            <div class="temp-unit-item" data-unit="fahrenheit">
+                                <span class="temp-unit-name">Fahrenheit (°F)</span>
+                                <span class="temp-unit-symbol">°F</span>
+                            </div>
+                            <div class="temp-unit-item" data-unit="kelvin">
+                                <span class="temp-unit-name">Kelvin (K)</span>
+                                <span class="temp-unit-symbol">K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="addToFavoritesBtn" class="add-favorite-btn" style="display: none;">⭐ Add to Favorites</button>
+            </div>
+            <div class="search-options">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="multiSourceCheckbox">
+                    <span class="checkmark"></span>
+                    Search from multiple sources
+                </label>
             </div>
         </div>
         
-        <div class="forecast" id="forecast" style="display: none;">
-            <h3>24-Hour Forecast</h3>
-            <div class="hourly-chart" id="hourlyChart"></div>
+        <div class="main-content">
+            <div class="weather-section">
+                <div class="weather" id="weather" style="display: none;">
+                    <h2 id="locationName"></h2>
+                    <div class="time-display" id="timeDisplay"></div>
+                    <div class="temp">
+                        <span id="currentTemp"></span>
+                    </div>
+                    <div id="weatherDescription"></div>
+                    <div class="details">
+                        <div>Humidity: <span id="humidity"></span>%</div>
+                        <div>Wind: <span id="windSpeed"></span> km/h</div>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="forecast-section">
+            <div class="forecast" id="forecast" style="display: none;">
+                <h3>24-Hour Forecast</h3>
+                <div class="hourly-chart" id="hourlyChart"></div>
+            </div>
+            
+            <div class="forecast" id="sevenDayForecast" style="display: none;">
+                <h3>7-Day Forecast</h3>
+                <div class="daily-chart" id="dailyChart"></div>
+            </div>
+        </div>
         </div>
         
-        <div class="forecast" id="sevenDayForecast" style="display: none;">
-            <h3>7-Day Forecast</h3>
-            <div class="daily-chart" id="dailyChart"></div>
+        <!-- Full-width chart section -->
+        <div class="chart-section">
+            <div class="forecast" id="forecastChart" style="display: none;">
+                <h3>Temperature & Rain Forecast</h3>
+                <div id="weatherChart"></div>
+            </div>
+        </div>
+        
+        <div class="webcam-section">
+            <div class="forecast" id="webcamContainer" style="display: none;">
+                <!-- Webcams will be loaded here -->
+            </div>
         </div>
         
         <div class="loading" id="loading" style="display: none;">
@@ -51,7 +117,12 @@
         </div>
     </div>
 
-    <script src="js/weather.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+    
+    <!-- Main entry point -->
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- Legacy files -->
     <script src="js/geolocation.js"></script>
     <script src="js/mock-data.js"></script>
 </body>
